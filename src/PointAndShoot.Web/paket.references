@@ -1,2 +1,5 @@
 FSharp.Core
 Suave
+Suave.Experimental
+DotLiquid
+Suave.DotLiquid
