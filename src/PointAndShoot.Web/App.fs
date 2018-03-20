@@ -37,5 +37,18 @@ let main argv =
       path "/" >=> page "/home.liquid" ""
   ]
 
+  let growlerConnString = 
+   Environment.GetEnvironmentVariable  "POINTANDSHOOT_DB_CONN_STRING"
+
+  let getDataContext = dataContext growlerConnString
+
+  let app = 
+    choose [
+      serveStatic
+      path "/" >=> page "main/home.liquid" ""
+      UserRegister.Suave.webPart getDataContext
+      Auth.Suave.webPart getDataContext
+  ]
+
   startWebServer defaultConfig app
   0
