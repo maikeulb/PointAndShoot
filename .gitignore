@@ -286,3 +286,7 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 build/
+.fake
+.paket
+obj
+bin
